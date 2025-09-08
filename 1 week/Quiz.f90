@@ -5,9 +5,10 @@
 program quiz1
     implicit none
 
-    age = 20
-    weight = 55.5
-
+    age = 20 
+    !   integer :: age       정수형 변수 age 선언
+    weight = 55.5   
+    !  real :: weight        실수형 변수 weight 선언                        
     print *, "Age:", age
     print *, "Weight:", weight
 end program quiz1
@@ -21,9 +22,9 @@ end program quiz1
 program quiz2
     implicit none
 
-    character :: name
-    name = "Bob"
-    print *, "Name:", name
+    character :: name        !  오류: 문자열 길이를 지정하지 않아 name은 1글자만 저장됨.
+    name = "Bob"             ! 오류: "Bob"은 3글자이지만 name은 1글자만 받아서 'B'만 저장됨.
+    print *, "Name:", name   ! 결과는 'B'만 출력됨.
 end program quiz2
 
 
@@ -34,11 +35,11 @@ end program quiz2
 program quiz3
     implicit none
 
-    real :: PI = 3.14159
+    real :: PI = 3.14159    !  'PI'는 상수로 사용할 변수이므로 'parameter'로 선언해야 함
     real :: r, area
 
     r = 5.0
-    PI = 3.14
+    PI = 3.14               !  잘못됨: 'PI'는 고정된 상수로 취급되어야 하며, 값을 변경하면 안 됨
     area = PI * r * r
 
     print *, "Circle area:", area
@@ -57,7 +58,7 @@ program quiz4
     logical :: is_adult
 
     age = 17
-    is_adult = true
+    is_adult = true             !  오류 발생: Fortran에서는 논리 상수 true는 .true. 로 작성해야 함
     if (is_adult) then
         print *, "Adult"
     else
@@ -74,7 +75,7 @@ end program quiz4
 program quiz5
     implicit none
 
-    real, parameter :: gravity = 9.8
-    gravity = 9.81
+    real, parameter :: gravity = 9.8         !  gravity는 상수 (parameter)로 선언됨
+    gravity = 9.81                           !  오류: 상수는 값을 변경할 수 없음 → 컴파일 에러 발생
     print *, "Gravity:", gravity
 end program quiz5
